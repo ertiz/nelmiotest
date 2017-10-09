@@ -2,22 +2,24 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\Controller\Annotations\RouteResource;
 
-class DefaultController extends Controller
+/**
+ * @RouteResource("User", pluralize=false)
+ */
+class DefaultController
 {
     /**
-     * @Route("/", name="homepage")
-     * @Method({"GET", "POST"})
+     * DefaultController constructor.
      */
-    public function indexAction(Request $request)
+    public function __construct()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+
+    }
+
+    public function cgetAction(Request $request)
+    {
+        return array("data"=>[]);
     }
 }
